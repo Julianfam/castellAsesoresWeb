@@ -1,0 +1,507 @@
+hea------------------------------------------------------
+Primero vamos a ubicarnos en la carpeta en la que vamos a crear el proyecto, Con el comando 'npx create-next-app nombreapp' ,nombreapp es el nombre de la app, con esto vamos a inicializar un proyecto en javascript con next.js 
+no mismo se hace con react:  npx create-react-app my-app. 
+Y luego iniciamos npm con npm start, npm dev, y npm build
+------------------------------------------------------
+Vamos a organizar varias carpetas dentro de global/src => pages, public,styles,modules, components. 
+
+Primero vamos a crear un archivo de configuración en la carpeta global: jsconfig.json
+
+dentro configuramos las opciones de compilación, la baseUrl y los Paths. 
+
+{
+    "compilerOptions":{
+        "baseUrl": "src",
+        "paths":{
+            "@pages": ["pages/"],
+        }
+    }
+}
+------------------------------------------------------
+Ahora vamos a agregar un documento dentro de la carpeta global este se llamara .eslintignore
+Dentro de esta carpeta agregaremos node_modules para que los ignore. 
+
+Ahora vamos a crear un documento nuevo en la carpeta global el cual se llamara .eslintrc.js
+
+dentro de este vamos a crear unas reglas para que la pagina fucione:
+
+module.exports = {
+    root: true,
+    env: {
+        browser: true,
+        amd: true,
+        node: true,
+        es6: true
+    },
+    extends: [ 
+        'eslint: recommended',
+        'plugin: jsx-a11y/recommended',
+        'plugin: prettier/recommended',
+        'next',
+        'nex/core-web-vitals',
+    ],
+    rules: {
+        'semi': ['error', 'always']
+    }
+}
+
+ahora vamos a crear un nuevo documento para configurar prettier=> prettier.config.js 
+
+dentro configuramos lo basico para un proyecto:
+
+    module.exports = {
+        semi: true,
+        singleQuote: true,
+        printWidth: 200,
+        tabWidth: 2,
+        useTabs: false,
+        trailingComma: 'es5',
+        backetSpacing: true,
+    }
+Ahora hace falta instalar los ultimos recursos. npm install prettier eslint-plugin-prettier 
+eslint-plugin-jsx-a11y eslint-config-prettier eslint-config-next
+------------------------------------------------------
+next.config.js
+
+vamos a agregar elementos necesarios que nos ayudaran a trabajar con valores para comprimir el sitio en gsid, así como configuraciones de trabajod con variables de entorno. 
+
+vamos a agregar unas configuraciónes 
+
+cuando trabajo con next y quiero enviar ciertas url de un lado a otro usare 
+async redirects(){
+    return [
+        {
+            source:'/'
+        }
+    ]
+}
+------------------------------------------------------
+Estructura de carpetas: de React.js a Next.js
+
+importamos un proyecto react, en este caso la tiendadigital y ahora vamos a cambiar unas carpetas para acomodarlas al lenguaje de next.js
+
+A la carpeta pages le cambiamos el nombre a templates para no tener problemas con next y copiamos desde la consola o manualmente. 
+
+
+------------------------------------------------------
+Alias y comunicación entre archivos
+
+Vamos a fusionar los archivos de next con los de React. 
+
+el codigo fuente de la aplicación sera en react, así todos los archivos de la aplicación que estaba en react son la base, y adicional le vamos a poner los archivos que tiene next.js 
+react ya tiene assets components containers context hooks routes styles templates index.js 
+
+
+de los archivos existentes de next.js pasaremos las paginas 
+
+despues de haber copiado los archivos de src2 a src pages public styles (archivos dentro de styles), ahora vamos a eliminar el index de react ya que este no lo vamos a usar. 
+
+primero vamos a editar el documento de home que este es el primer elemento llamado por la app
+
+dentro de pages se encuentra el nuevo archivo index que vamos a usar en la pagina next.js @
+
+
+vamos a configurar el nuevo index de esta forma, y tambien agregaremos el path para que sea reconocido. 
+
+los alias, en next.js se manejan desde el archivo de jsconfig.json  van a quedar de la siguiente forma 
+
+
+        {
+            "compilerOptions":{
+                "baseUrl": "src",
+                "paths":{
+                    "@pages/*": [ "pages/*" ],
+                    "@components/*": [ "components/*" ],
+                    "@slider/*": [ "slider/*" ],
+                    "@containers/*": [ "containers/*" ],
+                    "@icons/*": [ "assets/icons/*" ],
+                    "@logos/*": [ "assets/logos/*" ],
+                    "@context/*": [ "context/*" ],
+
+                }
+            }
+        }
+
+
+------------------------------------------------------
+ESTILOS DE HEADER 
+
+ahora vamos a instalar SASS con el comando 'npm i SASS'
+con next vamos a trabajar los estilos como modulos. La forma en la que vamos a llamar los estilos queda un poco diferente, cambiamos la importación de los estilos al documento y ahora la asignamos directamente al modulo que queremos aplicar, ejemplo de la seccion menu.
+
+dentro de jsconfig.json se ha olvidad la configuracion y despues de todos lo '/' vamos a poner un asterisco '*' 
+
+
+            import React from 'react';
+            import styles from '@styles/Menu.module.scss';
+
+            const Menu = () => {
+                return (
+                    <div className={styles.Menu}>
+                        <ul>
+                            <li>
+                                <a href="/" className="title">My orders</a>
+                            </li>
+                            <li>
+                                <a href="/">My account</a>
+                            </li>
+                            <li>
+                                <a href="/">Sign out</a>
+                            </li>
+                        </ul>
+                    </div>
+                );
+            }
+
+            export default Menu;
+
+Los estilos cambian de un plano general dentro del archivo y ahora se llaman de forma directa al objeto. 
+Es necesario cambiarle el nombre a los archivos de estilos que estamos configurando como modulos de la siguiente forma : Header.module.scss.
+
+Dentro de las variables de estilos es necesario cambiar la sintaxis  
+pasamos de 
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+
+a 
+        $--white: #FFFFFF;
+        $--black: #000000;
+        $--very-light-pink: #C7C7C7;
+        $--text-input-field: #F7F7F7;
+        $--hospital-green: #ACD9B2;
+        $--sm: 14px;
+        $--md: 16px;
+        $--lg: 18px;
+
+y tenemos que hacer los cambios en todos los estilos que tengan la configuración previa. 
+
+pasamos de 
+    background-color: var(--hospital-green);
+A
+    background-color: $--hospital-green;
+
+vamos a devolver el archivo next.config.js a su configuración inicial ya que en este momento no se requiere y no nos sirve para las pruebas en este momento.
+quedando de la siguiente forma=> 
+
+        /** @type {import('next').NextConfig} */
+        const nextConfig = {
+        reactStrictMode: true,
+        }
+
+        module.exports = nextConfig
+
+
+
+
+------------------------------------------------------
+React Context en el Header con NEXT.js
+
+Vamos a configurar el contexto en nextjs, el documento principal  de la app ha cambiando de ruta, debemos corregirla. 
+
+los archivos que inician con un guion bajo no se leen como rutas, no son interpretadas.
+
+para tener el seguimiento del context vamos a modificar el archivo que contentra la info global que es la info que se encuentra en app context y en initial state => este es el que se modifica, appcontext es el actual:
+queda de la siguiente forma. 
+
+
+
+        import '../styles/globals.css'
+        import Appcontext from '@context/AppContext'
+        import useInitialState from '@hooks/useInitialState'
+
+        function MyApp({ Component, pageProps }) {
+        const initialState = useInitialState();
+        return (
+            <Appcontext.Provider value={initialState}>
+            <Component {...pageProps} />
+            </Appcontext.Provider>
+        )
+        }
+
+        export default MyApp
+
+
+para que los estilos de las paginas nos funcionen vamos a cambiar los nombres de classname de los archivos, con la estructura {styles.menu} ya en el caso de nombres con guion usamos {styles['nav-logo']}
+
+------------------------------------------------------
+next/image: assets en Next.js
+ Vamos a usar un componente que nos proporciona next.js para manerjar los assets de la app.
+ la estructura que nos da next para hacer el import es la siguiente
+
+    import Image from 'next/image'
+
+ya con esto vamos a cambiar la palabra de img por Image como se muestra a continuación 
+de esto
+    <img src={menu} alt="menu" className={styles.menu} />
+pasa a esto
+    <Image src={menu} alt="menu" className={styles.menu} />
+------------------------------------------------------
+CONFIGURACIÓN DEL HOME, lista de productos
+
+para agregar el header en todas las paginas vamos a cambiar su ubicación lo moveremos de /pages/index.js, y lo vamos a poner dentro de /pages/_app.js. (recordar index es el punto de entrada de este sitio)
+ lo traemos como un import y lo configuramos de la siguiente forma:
+
+ antes de que pase todos los hijos de la app en este comando <Component {...pageProps} /> lo ubicaremos encima <Header />
+
+        import '../styles/globals.css'
+        import Appcontext from '@context/AppContext'
+        import useInitialState from '@hooks/useInitialState'
+        import Header from '@components/header';
+
+        function MyApp({ Component, pageProps }) {
+        const initialState = useInitialState();
+        return (
+            <Appcontext.Provider value={initialState}>
+            <Header/>
+            <Component {...pageProps} />
+            </Appcontext.Provider>
+        )
+        }
+
+        export default MyApp    
+
+
+Cuando un objeto tiene multiples className tiene una sintaxis distinta la llamada de estilos somo se presentan a continuación 
+
+        import React, { useContext } from 'react';
+        import Image from 'next/image';
+                
+        import AppContext from '../context/AppContext';
+        import addToCartImage from '@icons/bt_add_to_cart.svg';
+        import styles from '@styles/ProductItem.module.scss'
+
+        const ProductItem = ({ product }) => {
+            const { state, addToCart } = useContext(AppContext);
+            const handleClick = item => {
+                console.log('in cart: ', state.cart.includes(item))
+                addToCart(item)
+            }
+            return (
+                <div className={styles.ProductItem}>
+                    <Image src={product.images[0]} alt= {product.title} />
+                    <div className={styles['product-info']}>
+                        <div>
+                            <p>${product.price}</p>
+                            <p>{product.title}</p>
+                        </div>
+                        <figure className={styles['figure-click']} onClick = { () => 
+                            handleClick(product)}>
+                
+                            {
+                                state.cart.includes(product) ? 
+                                <Image className={`${styles.disabled} ${styles['add-to-cart-btn']}`}
+                                src= {addedToCartImage} alt ="added to cart" / > : 
+                                <Image className={`${styles['add-tocart-btn']} ${styles.pointer}`} src= 
+                                {addToCartImage} alt= "add to cart"/>
+                            }
+                        
+                            <Image src={addToCartImage} alt="Add to cart" />
+                        </figure>
+                    </div>
+                </div>
+            );
+        }
+
+        export default ProductItem;
+
+
+
+en el caso de que la app no reciba informacion de la API le vamos a agregar un signo de ? para que este no genere error 
+
+<p>{product?.title}</p>
+			<p>${product?.price}</p>
+
+------------------------------------------------------
+
+next/link: enlaces en Next.js
+vamos ha enlazar las aplicaciónes 
+
+vamos a improtar 
+import Link from 'next/link';
+y ya con esto tenemos lo necesario para configurar la coneccion entre rutas el button lo vamos a cambiar por el componente link 
+
+ejempo => 
+de
+    <button className={styles[primary-button]}> 	Checkout </button>
+pasa a 
+    <link className={styles[primary-button]} href="/checkout">		Checkout </link>
+
+
+
+
+Vamos a configurar ahora las imagenes para que no presenten error, dentro de 'next.config.js'
+
+    /** @type {import('next').NextConfig} */
+    const nextConfig = {
+    reactStrictMode: true,
+    images: {
+        domains: ['placeimg.com',
+        'api.lorem.space',
+        'vuzoon.com',
+        'www.complementosdelcafe.com'],
+    },
+
+
+
+    }
+
+    module.exports = nextConfig
+ 
+
+------------------------------------------------------
+next/head: SEO en Next.js
+
+dentro de la carpeta de pages vamos a crear un archivo nuevo => '_document.js' el guión bajo es para que este archivo sea ignorado y quede como archivo de configuracion o un archivo de requicitos que pueda llegar a tener next. 
+
+nextscript contendra todos los scripts requeridos en nuestro proyecto 
+
+                const { Html, NextScript, Main } = require("next/document");
+                const { default: Head } = require("next/head");
+
+                class MyDocument extends Document {
+                    render() {
+                        return(
+                            <Html lang="en">
+                                <Head>
+                                    <title> Next.js Shop</title>
+                                </Head>
+                                <body>
+                                    <Main/>
+                                    <NextScript />
+                                </body>
+                            </Html>
+                        )
+                    }
+                }
+
+------------------------------------------------------
+Google Analytics con Next.js
+
+vamos a hacer uso del Head, el cual lo vamos a configurar para que en cada pagina este se pueda personalizar por pagina 
+
+
+
+------------------------------------------------------
+Preparando la app para el deploy a producción
+
+Antes de hacer un build en la nube debemos hacer primero un build local, vamos a usar el siguiente comando que nos sirve para revisar nuestro proyecto con las reglas y los estandares establecidos en next
+'npm run lint'
+
+
+vamos a agregar en package.json un nuevo script que se llama `"lint:fix": "eslint src/ --fix"`
+al ejecutar este comando en la consola, lint va a buscar los posibles errores y soluciones que nos dara la app bajo las reglas que le hayamos establecido a eslint y prettier.
+
+------------------------------------------------------
+Usando Next scrip con google Analytics, vamos a configurarlo dentro de la _app.js
+
+así dejaremos la app 
+
+
+import Appcontext from '@context/AppContext';
+import useInitialState from '@hooks/useInitialState';
+import Header from '@components/header';
+import Script from 'next/script';
+
+import '@styles/globals.css';
+
+function MyApp({ Component, pageProps }) {
+  const initialState = useInitialState();
+  return (
+    <Appcontext.Provider value={initialState}>
+       <Script src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+            {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'GA_MEASUREMENT_ID');
+        `}
+      </Script>
+      <Header />
+      <Component {...pageProps} />
+    </Appcontext.Provider>
+  );
+}
+
+export default MyApp;
+
+ahora vamos a ejecutar 'npm run lint', en este momento nos esta arrojando errores de prettier/prettier y esto hace necesario que configuremos .eslintrc.js
+
+primero anulamos prettier con la regla  -'prettier/prettier': 0,-
+segundo nos sale un error de semicolon estos los vamos a corregir manualmente, son semicolons que no pusimos. 
+
+
+
+------------------------------------------------------
+
+Correccion de bugs
+
+antes del despliegue en la nube debemos asegurarnos que las siguientes funciones se realicen con exito. 
+En caso contrario realizar las correcciones pertinentes. 
+npm run dev
+npm run slint
+npm run slint:fix
+npm run build
+npm run start
+------------------------------------------------------
+Deployment en Vercel
+
+
+------------------------------------------------------
+Progressive Web Apps con Next.js 12
+
+Pasar de APP a una PWA ProgressiveWebApp esto la convierte en una app mas optimizada y facil de manejar. 
+
+npm i next-PWA
+
+Dentro de Next.config.js vamos a configurar este paquete. 
+
+acá dentro vamos a agregar la configuracipin de PWA
+    
+    const withPWA = require('next-pwa');
+
+despues agregamos la configuración con la cual se configura como va a exportar los archivos.    
+
+
+Ahora debemos crear un manifiesto que se crea de forma externa, es un archivo .json con cofiguración global de diseño optimizando los iconos. 
+
+https://www.simicart.com/manifest-generator.html/ => acá podemos crear el manifiesto. 
+
+Standalone, despues de haber configurado y descargado los iniconos, vamos a crear el archivo manifest.json 
+dentro de la carpeta public dentro de src. 
+
+Dentor de este vamos a poner el codigo que nos proporciona simicart en el archivo que nos creo el cual ya contiene la informacion de los iconos. 
+
+toca agregar estos iconos a la carpeta Public. 
+
+es necesario agregar esta configuracion a la carpeta de _document.js que esta ubicada dentro de pages. 
+<link rel="manifest" href="/manifest.json"/>
+este codigo se agrega dentro de la seccion Head del archivo mencionado. 
+
+y debemos sacar la carpeta public al espectro global, al mismo nivel que src. 
+
+Despues de haber corregido problemas de configuración  en el document next.config.js podemos decir que la app esta lista para despliegue y ya se comporta como una app 
+
+------------------------------------------------------
+spa= single page aplication 
+Performace: SSR vs. SSG 
+
+Server Side Render y static Side Generator 
+
+Server side render 
+
+Para exportar el sitio como estatico vamos a agregar una configuración en los scripts dentro de package.json
+"export":"next build && next export"
+------------------------------------------------------
+------------------------------------------------------
+
