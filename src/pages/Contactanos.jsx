@@ -12,19 +12,19 @@
 
 // export default Contactanos
 
-import React from 'react'
-import { useState } from 'react'
-import styles from '../styles/Contactanos.module.scss'
+import React from 'react';
+import { useState } from 'react';
+import styles from '../styles/Contactanos.module.scss';
 
 const Contact = () => {
-  const [name, setName] = useState('')
-  const [number, setNumber] = useState('')
-  const [email, setEmail] = useState('')
-  const [whatsapp, setWhatsapp] = useState(false)
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     // handle form submission
-  }
+  };
   return (
     <div className={styles.formContainer}>
       <h1>Contact Us</h1>
@@ -71,7 +71,7 @@ const Contact = () => {
         <input className={styles.formSubmit} type="submit" value="Submit"action="mailto:julifeli123@gmail.com" />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

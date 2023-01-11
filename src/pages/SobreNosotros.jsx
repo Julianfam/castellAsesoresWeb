@@ -11,7 +11,7 @@ const SobreNosotros = () => {
     <>
     <section className={styles.contenedorNosotros}>
       <div className={styles.contenedorImagen}>
-        <Image className={styles.imagenIzq} src={imagenIzquierda}></Image>
+        <Image className={styles.imagenIzq} src={imagenIzquierda} alt="imagen de constructores"></Image>
       </div>
       <div className={styles.contenedorTexto}>
         <h1>Quienes somos</h1>
@@ -19,7 +19,7 @@ const SobreNosotros = () => {
       </div>
     </section>
     </>
-  )
-}
+  );
+};
 
-export default SobreNosotros
+export default SobreNosotros;

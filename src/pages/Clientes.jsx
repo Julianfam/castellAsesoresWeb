@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import logo1 from '../assets/img/EmpresaLogo/empresa1.svg';
 import logo2 from '../assets/img/EmpresaLogo/empresa2.jpg';
 import logo3 from '../assets/img/EmpresaLogo/empresa3.png';
@@ -13,7 +14,7 @@ import logo11 from '../assets/img/EmpresaLogo/empresa13.jpg';
 
 
 
-import styles from '../styles/Clientes.module.scss'
+import styles from '../styles/Clientes.module.scss';
 
 const Clientes = () => {
   return (
@@ -36,7 +37,7 @@ const Clientes = () => {
       </div>
 
     </div>
-  )
-}
+  );
+};
 
-export default Clientes
+export default Clientes;
