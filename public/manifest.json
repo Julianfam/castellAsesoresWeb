@@ -1,12 +1,12 @@
 {
-    "theme_color": "#35f6b6",
-    "background_color": "#f5d0ac",
-    "display": "standalone",
+    "theme_color": "#a00101",
+    "background_color": "#a00101",
+    "display": "browser",
     "scope": "/",
     "start_url": "/",
-    "name": "NextJsShop",
-    "short_name": "Ecommerce JsNext",
-    "description": "Ecommerce coded in React with Nextjs",
+    "name": "Castell Asesores",
+    "short_name": "CA",
+    "description": "Empresa de Asesorias para empresas",
     "icons": [
         {
             "src": "/icon-192x192.png",
