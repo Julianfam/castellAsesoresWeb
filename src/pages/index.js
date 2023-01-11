@@ -1,7 +1,8 @@
 import Slider from '@components/Slider';
-import ProductList from '@containers/ProductList';
+
 import Footer from '@components/Footer';
 import Head from 'next/head';
+
 
 export default function Home() {
   return (
@@ -9,8 +10,7 @@ export default function Home() {
       <Head>
         <title>NextJsShop</title>
       </Head>
-      <Slider />
-      <ProductList />
+      <Slider />      
       <Footer />
     </>
   );

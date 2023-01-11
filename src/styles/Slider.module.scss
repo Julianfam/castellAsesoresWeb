@@ -1,16 +1,82 @@
 @import 'vars';
 
-.contenedorImagenes {
-    width: 100%;
-    height: auto;
-    background-color: $--white;
-
-    .imagenSlider {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-
+.contenedorGlobal {
+    h1,p {
+        color:black;
     }
-
+    h1 {
+        width: 90%;
+        min-width: 288px;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 0 20px;
+        
+    }
+    p {
+        width: 90%;
+        min-width: 288px;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 25px 25px 0 25px;
+    }
+}
+.contenedorImagenes {
+    width: auto;
+    height: 100vh;
+    background-color: $--white;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+    ;
+}
+.contenedorImagenes .imagenSlider {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-image: url('../assets/img/image-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+}
+.contenedorImagenes .contenedorTextoImagen1{
+    min-width: 300px;
+    max-width: 400px;
+    height: auto;
+    margin: auto;
+    background-color: $--white;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    padding-top: 100px;
 }
 
+.contenedorImagenes .imagenSlider2 {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-image: url('../assets/img/image-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+}
+.contenedorImagenes .imagenSlider3 {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-image: url('../assets/img/image-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+}
+
+.imagenSlider4 .contenedorTexto2 {
+    display: inline-flex;
+    color: black;
+    
+    ul li {
+        list-style: none;
+    text-decoration: none;
+    }
+}

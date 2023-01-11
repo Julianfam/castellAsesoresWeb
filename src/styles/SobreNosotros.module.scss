@@ -1,0 +1,26 @@
+.contenedorNosotros {
+    display: inline-flex;
+    width: 100%;
+    .contenedorImagen {
+    width: 50%;
+    height: auto;
+    
+        .imagenIzq {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    .contenedorTexto {
+        width: 50%;
+        height: 100vh;
+        text-align: center;
+        h1 {
+            margin-top: 30vh;
+        }
+        }
+
+
+
+}
