@@ -1,77 +1,25 @@
-// import React from 'react'
-
-// const Contactanos = () => {
-//   return (
-//     <div>
-//       <form action="">
-//         <button>acá va un formulario</button>
-//       </form>
-//     </div>
-//   )
-// }
-
-// export default Contactanos
-
 import React from 'react';
-import { useState } from 'react';
 import styles from '../styles/Contactanos.module.scss';
 
-const Contact = () => {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [whatsapp, setWhatsapp] = useState(false);
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // handle form submission
-  };
+const Contactanos = () => {
   return (
-    <div className={styles.formContainer}>
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit} >
-        <label>
-          Name:
-          <input
-            className={styles.formInput}
-            type="text"
-            value={name}
-            onChange={event => setName(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Number:
-          <input
-            className={styles.formInput}
-            type="text"
-            value={number}
-            onChange={event => setNumber(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            className={styles.formInput}
-            type="email"
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Contact via WhatsApp:
-          <input
-            className={styles.formInput}
-            type="checkbox"
-            checked={whatsapp}
-            onChange={() => setWhatsapp(!whatsapp)}
-          />
-        </label>
-        <input className={styles.formSubmit} type="submit" value="Submit"action="mailto:julifeli123@gmail.com" />
+    <>
+    
+    <section className={styles.formulario}>
+    <h1> Contactanos</h1>
+      <form className={styles.formFormulario} action="mailto:gerentedeproyectos@castellasesores.com;" method="post" enctype="text/plain" 
+        onsubmit="return sendForm()">
+          <label htmlFor="name">Nombre</label><br/>
+          <input type="text" id="name" name="name"/><br/>
+          <label htmlFor="number">Numero de contacto</label><br/>
+          <input type="text" id="number" name="number"/><br/>
+          <label htmlFor="mail">Escribe tu mensaje:</label><br/>
+          <input className={styles.inputMensaje} type="text" id="mail" name="mail"/><br/><br/>
+        <input type="submit" value="Enviar" id="submit-button"/>
       </form>
-    </div>
+    </section>
+    </>
   );
 };
 
-export default Contact;
+export default Contactanos;
