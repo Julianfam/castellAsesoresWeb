@@ -13,6 +13,9 @@ const Menu = () => {
 					<Link href="/SobreNosotros">Sobre Nosotros</Link>
 				</li>
 				<li>
+					<Link href="/Clientes">Clientes</Link>
+				</li>
+				<li>
 					<Link href="/Contactanos">Contactanos</Link>
 				</li>
 				
