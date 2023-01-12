@@ -18,8 +18,9 @@ import styles from '../styles/Clientes.module.scss';
 
 const Clientes = () => {
   return (
+    <section className={styles.contenedorGlobal}>
     <div className={styles.contenedorClientes}>
-      <h1>Prueba</h1>
+      <h1 className={styles.textoH1}>Estos Han sido nuestros Clientes</h1>
       <div className={styles.contenedorLogos}>
       <Image className={styles.empresalogo} src={logo1} alt="logo"></Image>
       <Image className={styles.empresalogo} src={logo2} alt="logo"></Image>
@@ -37,6 +38,7 @@ const Clientes = () => {
       </div>
 
     </div>
+  </section>
   );
 };
 

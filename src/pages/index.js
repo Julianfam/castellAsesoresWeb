@@ -11,7 +11,7 @@ export default function Home() {
         <title>NextJsShop</title>
       </Head>
       <Slider />      
-      <Footer />
+      
     </>
   );
 }

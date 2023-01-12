@@ -1,0 +1,28 @@
+@import 'vars';
+.contenedorGlobal {
+    background-color: $--white; 
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    .textoH1 {
+        padding-top: 50px;
+        margin: 0;
+    }
+   
+}
+.contenedorClientes {
+    max-width: 900px;
+    height: 100%;
+    margin: auto;
+    color: $--hospital-green;
+    background-color: $--white;
+    margin-top: 0;
+    .empresalogo{
+        width: auto;
+        max-width: 200px;
+        height: auto;
+    }
+}
+
+
+

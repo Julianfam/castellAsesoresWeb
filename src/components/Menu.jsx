@@ -10,11 +10,12 @@ const Menu = () => {
 					<Link className="title" href="./">Menu</Link>
 				</li>
 				<li>
-					<Link href="./">Listado</Link>
+					<Link href="/SobreNosotros">Sobre Nosotros</Link>
 				</li>
 				<li>
-					<Link href="./">Otros</Link>
+					<Link href="/Contactanos">Contactanos</Link>
 				</li>
+				
 			</ul>
 		</div>
 	);

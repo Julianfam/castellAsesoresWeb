@@ -26,13 +26,13 @@ const Slider = () => {
           <section className={styles.contenedorImagenes}>
                 <div className={styles.imagenSlider}>
                   <div className={styles.contenedorTextoImagen1}>
-                  <Image src={logo} alt="logo"></Image>
-                    <h1> Nuestra compromiso es proveer la mejor solución</h1>
+                      <Image src={logo} alt="logo"></Image>
+                      <h1> Nuestra compromiso es proveer la mejor solución</h1>
                       <p>Somos una empresa con responsabilidad social, al servicio de nuestros clientes,    orientandolos con conocimiento, experiencia y vivencias en consultorías, asesorías, auditorías y formación en sistemas de gestión con criterio técnico, profesional, ético y moral.</p>
-                      </div>
-                   </div>
-        </section>
-        <section className={styles.contenedorImagenes}>
+                  </div>
+                </div>
+          </section>
+        <section className={styles.contenedorTexto}>
                 
             <div className={styles.imagenSlider4}>
                 <div className={styles.contenedorTexto2}>
