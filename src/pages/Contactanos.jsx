@@ -15,7 +15,7 @@ const Contactanos = () => {
           <input type="text" id="number" name="number"/><br/>
           <label htmlFor="mail">Escribe tu mensaje:</label><br/>
           <input className={styles.inputMensaje} type="text" id="mail" name="mail"/><br/><br/>
-        <input type="submit" value="Enviar" id="submit-button"/>
+        <input className={styles.sendButton} type="submit" value="Enviar" id="submit-button"/>
       </form>
     </section>
     </>
