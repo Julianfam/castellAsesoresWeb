@@ -61,8 +61,8 @@
     display: inline-flex;
     
      text-align: center;
-     color: white;
-     background-color: $--hospital-green;
+     color: black;
+     background-color: $--white;
      width: 100%;
     ul li {
         
@@ -75,12 +75,15 @@
         max-width: 300px;
         height: 400px;
         margin: auto;
-        border: 1px $--white solid;
+        border: 1px $--black solid;
         border-radius: 25px;
       margin-top: 30px;
       margin-bottom: 30px;
-      h1 ,p {
-        color: white;
+      h1  {
+        color: $--hospital-green;
+      }
+      p {
+        color: $--black;
       }
       ul , li {
         padding: 0 10px;
