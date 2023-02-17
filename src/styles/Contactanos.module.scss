@@ -2,7 +2,8 @@
 .formulario {
   background-color: white;
   width: 100%;
-  height: 80vh;
+  height: 70vh;
+  min-height: 420px;
   text-align: center;
   color: $--hospital-green;
   padding-top: 50px;
@@ -13,6 +14,12 @@
   }
   
 }
+.formularioseccion .label{
+  margin: 5px;
+}
 .label textarea {
     height: auto;
+  }
+  .input {
+    margin: 20px;
   }

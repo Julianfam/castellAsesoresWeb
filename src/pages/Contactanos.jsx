@@ -21,21 +21,21 @@ const Contactanos = () => {
     <div className={styles.formulario} >
         <form ref={form} onSubmit={sendEmail}>
           <div className={styles.formularioseccion}>
-                <div className={styles.label}><label htmlFor="name">Name</label></div>
+                <div className={styles.label}><label htmlFor="name">Nombre</label></div>
                 
                 <input type="text" name="user_name" id="name" />
           </div>
               
           <div className={styles.formularioseccion}>
-          <div className={styles.label}><label htmlFor="email">Email</label></div>
+          <div className={styles.label}><label htmlFor="email">Correo</label></div>
               <input type="email" name="user_email" id="email" />
           </div>
               
           <div className={styles.formularioseccion}>
-          <div className={styles.label}><label htmlFor="text">Message</label></div>
-              <textarea className={styles.text} name="message" id="text"  />
+          <div className={styles.label}><label htmlFor="text">Mensaje</label></div>
+              <textarea rows="12" className={styles.text} name="message" id="text"  />
               <div className={styles.input}>
-                <input type="submit" value="Send" />
+                <input type="submit" value="Enviar" />
               </div>
               
           </div>
