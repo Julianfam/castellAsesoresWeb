@@ -69,6 +69,7 @@
     list-style: none;
     text-decoration: none;
     text-align: center;
+    line-height: 25px;
 
     }
     .texto {
@@ -90,7 +91,9 @@
       }
     }
 }
-
+.texto ul .contabilidad {
+    line-height: 35px;
+}
 @media (max-width:500px) {
     .imagenSlider4 .contenedorTexto2 {
         display: flex;

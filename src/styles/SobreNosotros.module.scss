@@ -30,17 +30,22 @@
         text-align: center;
       }
       .texto {
-        width: 70%;
+        width: 300px;
         margin: auto;
+        line-height: 25px;
+        text-align: justify;
       }
     }
 
-    @media (max-width:600) {
+    @media (max-width:600px) {
         .contenedorImagen .img {
 
             max-height: 600px;
-           
         }
-    
         
+    }
+    @media (min-width:500px){
+      .contenedorTexto .texto {
+        width: 500px;
+      }
     }

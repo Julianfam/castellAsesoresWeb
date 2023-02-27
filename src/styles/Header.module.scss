@@ -51,14 +51,14 @@
 .navbar-right ul li button {
 	text-decoration: none;
 	color: $--black;
-	padding: 8px;
+	padding: 4px;
 	border-radius: 8px;
 	font-weight: 700;
 }
 .navbar-email, .navbar-shopping-cart{
 	background-color: transparent;
 	border-style: none;
-	padding: 10px;
+	padding: 5px;
 }
 .navbar-right ul li div{
 	color: $--black;
@@ -67,7 +67,7 @@
 .navbar-right ul button:hover {
 	border: 1px solid $--hospital-green;
 	color: $--hospital-green;
-	border-radius: 8px;
+	border-radius: 5px;
 }
 .navbar-email {
 	color: $--very-light-pink;

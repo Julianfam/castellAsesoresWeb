@@ -37,9 +37,24 @@ const Slider = () => {
             <div className={styles.imagenSlider4}>
                 <div className={styles.contenedorTexto2}>
                   <div className={styles.texto}>
+                      <h1> Recursos Humanos</h1>
+        
+                      <ul>
+                         <li>Afiliaciones a <b>seguridad Social</b></li>                         
+                        <li><b>Nomina</b></li>  
+                        <li> <b>Capacitaciones</b></li>
+                        <li>Bateria de riesgo <b> psicosocial</b></li>  
+                        <li><b>Clima</b> organizacional </li>    
+                        <li><b>Cultura</b> organizacional</li>  
+                        <li><b>Bienestar</b> organizacional </li>   
+                        
+                      </ul>
+                  </div>
+                  <div className={styles.texto}>
                       <h1> Sistemas de Gestión</h1>
-                      <p>- Sistema De Gestión De Seguridad Y Salud en El Trabajo</p> 
-                      <ul>                        
+                      
+                      <ul>  
+                        <li>Sistema De Gestión De Seguridad Y Salud en El Trabajo</li>                       
                         <li><b>Auditorias Empresariales</b></li>  
                         <li>Sistema De  <b>Gestión De Calidad</b></li>
                         <li>Sistema De   <b>Gestión Ambiental</b></li>  
@@ -50,29 +65,14 @@ const Slider = () => {
                       </ul>
                   </div>
                   <div className={styles.texto}>
-                      <h1> Sistemas de Gestión</h1>
-                      <p>- Sistema De Gestión De Seguridad Y Salud en El Trabajo</p> 
+                      <h1> Contabilidad</h1>
+                     
                       <ul>                        
-                        <li><b>Auditorias Empresariales</b></li>  
-                        <li>Sistema De  <b>Gestión De Calidad</b></li>
-                        <li>Sistema De   <b>Gestión Ambiental</b></li>  
-                        <li>Sistema De Seguridad De La Información</li>    
-                        <li>Norma Internacional <b>BASC</b></li>  
-                        <li><b>Capacitaciones</b> Manejo Operativo Y Administrativo Empresarial </li>   
-                        <li><b>Estructuración</b> Organizacional</li>
-                      </ul>
-                  </div>
-                  <div className={styles.texto}>
-                      <h1> Sistemas de Gestión</h1>
-                      <p>- Sistema De Gestión De Seguridad Y Salud en El Trabajo</p> 
-                      <ul>                        
-                        <li><b>Auditorias Empresariales</b></li>  
-                        <li>Sistema De  <b>Gestión De Calidad</b></li>
-                        <li>Sistema De   <b>Gestión Ambiental</b></li>  
-                        <li>Sistema De Seguridad De La Información</li>    
-                        <li>Norma Internacional <b>BASC</b></li>  
-                        <li><b>Capacitaciones</b> Manejo Operativo Y Administrativo Empresarial </li>   
-                        <li><b>Estructuración</b> Organizacional</li>
+                        <li className={styles.contabilidad}>Programas <b>contables</b></li>  
+                        <li className={styles.contabilidad}>Declaración de <b>renta</b></li>
+                        <li className={styles.contabilidad}><b>Asesorías</b>  contables</li>  
+                        <li className={styles.contabilidad}>Elaboración de <b>estados financieros</b></li>    
+                        
                       </ul>
                   </div>
                 </div>     
